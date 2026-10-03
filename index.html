@@ -1,201 +1,105 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="theme-color" content="#7EC8E3" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#1B6FD4"/>
 <title>SD House</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700;800&family=Noto+Sans+Lao:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700;800&family=Noto+Sans+Lao:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-  :root { --sky:#7EC8E3; --soft:#E8F6FB; --blue:#2F80ED; --navy:#1B3A4B; --muted:#667884; --line:#e4eef3; --bg:#f4f8fb; --wa:#1ebe5d; --gold:#e6a31a; }
-  * { box-sizing:border-box; } html,body { margin:0; height:100%; }
-  body { background:#d7e4ec; color:var(--navy); font-family:"Noto Sans Thai","Noto Sans Lao","Noto Sans SC",sans-serif; }
-  button,input,select,textarea { font-family:inherit; } button { cursor:pointer; }
-  .app { width:min(430px,100%); min-height:100%; margin:0 auto; background:var(--bg); position:relative; }
-  .top { position:sticky; top:0; z-index:4; display:flex; align-items:center; gap:8px; padding:12px 14px 8px; background:linear-gradient(#d7f1f8,var(--bg)); }
-  .logo { width:44px; height:44px; border-radius:13px; object-fit:cover; background:#fff; }
-  .brand { font-weight:800; letter-spacing:-.03em; } .brand small { display:block; font-size:11px; color:var(--muted); font-weight:600; }
-  .grow { flex:1; }
-  .lang { display:flex; background:#fff; border:1px solid var(--line); border-radius:999px; padding:2px; }
-  .lang button { border:0; background:transparent; color:var(--muted); font-size:11px; font-weight:800; border-radius:999px; padding:5px 7px; }
-  .lang button.on { background:var(--blue); color:#fff; }
-  .body { padding:4px 14px 112px; }
-  .hero { background:#fff; border-radius:26px; text-align:center; padding:22px 16px 16px; box-shadow:0 10px 28px rgba(27,58,75,.06); }
-  .hero img { width:132px; border-radius:28px; }
-  .hero h1 { margin:8px 0 2px; font-size:30px; }
-  .search { display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:11px 12px; margin-top:10px; }
-  .search input,.box input,.box select,.box textarea { width:100%; border:0; outline:0; background:transparent; font-size:15px; color:var(--navy); }
-  .rowchips { display:flex; gap:8px; overflow:auto; padding:10px 0 2px; }
-  .chip { border:1px solid var(--line); background:#fff; color:var(--navy); border-radius:999px; padding:7px 12px; font-weight:700; font-size:13px; white-space:nowrap; }
-  .chip.on { background:var(--navy); color:#fff; border-color:var(--navy); }
-  .card { display:grid; grid-template-columns:116px 1fr; background:#fff; border-radius:18px; overflow:hidden; margin:10px 0; box-shadow:0 8px 22px rgba(27,58,75,.07); text-align:left; width:100%; border:0; padding:0; }
-  .ph { min-height:124px; position:relative; }
-  .bdg { position:absolute; left:7px; top:7px; border-radius:999px; padding:3px 7px; font-size:10px; font-weight:800; color:#fff; background:var(--blue); }
-  .bdg.gold { background:var(--gold); color:var(--navy); } .bdg.ok { background:#1f9d55; top:28px; }
-  .mt { padding:9px 10px 11px; } .mt h3 { margin:0 0 3px; font-size:14px; } .sub { color:var(--muted); font-size:12px; }
-  .price { color:var(--blue); font-weight:800; margin-top:5px; }
-  .tabs { position:fixed; left:50%; transform:translateX(-50%); bottom:0; width:min(430px,100%); background:#fff; display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--line); padding:7px 0 calc(8px + env(safe-area-inset-bottom)); z-index:5; }
-  .tabs button { border:0; background:transparent; color:var(--muted); font-size:10px; font-weight:700; }
+  :root { --blue:#1B6FD4; --sky:#7EC8E3; --navy:#1B3A4B; --pink:#e25b6a; --bg:#f6f7f9; --muted:#70808c; }
+  * { box-sizing:border-box; } body { margin:0; background:#e8eef3; font-family:"Noto Sans Thai","Noto Sans Lao",sans-serif; color:var(--navy); }
+  button,input { font-family:inherit; } button { cursor:pointer; }
+  .app { width:min(430px,100%); min-height:100vh; margin:0 auto; background:var(--bg); padding-bottom:96px; }
+  .head { background:linear-gradient(#1B6FD4,#2F80ED); color:#fff; padding:14px 14px 18px; border-radius:0 0 22px 22px; }
+  .brand { display:flex; align-items:center; gap:8px; font-weight:800; }
+  .mark { width:36px; height:36px; border-radius:10px; background:#7EC8E3; display:grid; place-items:center; }
+  .search { margin-top:12px; background:#fff; border-radius:999px; display:flex; align-items:center; gap:8px; padding:11px 14px; color:#8aa; }
+  .search input { border:0; outline:0; width:100%; font-size:15px; color:var(--navy); }
+  .prices { display:grid; grid-template-columns:repeat(3,1fr); background:#fff; margin:-12px 14px 0; border-radius:16px; position:relative; box-shadow:0 8px 18px rgba(27,58,75,.06); }
+  .prices button { border:0; background:transparent; padding:12px 6px; }
+  .prices b { display:block; font-size:16px; } .prices span { color:var(--muted); font-size:11px; }
+  .promo { margin:14px; background:linear-gradient(#fff,#f3f8ff); border-radius:16px; padding:14px; display:flex; align-items:center; gap:10px; }
+  .promo i { width:36px; height:36px; border-radius:50%; background:#e8f3ff; display:grid; place-items:center; font-style:normal; }
+  .hscroll { display:flex; gap:10px; overflow:auto; padding:0 14px 6px; }
+  .pcard { min-width:168px; background:transparent; border:0; text-align:left; padding:0; }
+  .photo { height:118px; border-radius:14px; position:relative; }
+  .time { position:absolute; left:8px; top:8px; background:#fff; border-radius:999px; font-size:11px; font-weight:700; padding:3px 7px; }
+  .name { font-weight:800; margin:6px 0 0; font-size:13px; }
+  .sub { color:var(--muted); font-size:12px; }
+  .price { color:var(--blue); font-weight:800; } .old { color:#a0aab2; text-decoration:line-through; font-weight:600; font-size:12px; }
+  .off { color:var(--pink); font-weight:800; font-size:12px; }
+  h2 { font-size:16px; margin:16px 14px 8px; }
+  .wide { min-width:250px; }
+  .wide .photo { height:150px; }
+  .heart { position:absolute; right:8px; top:8px; background:#fff; border:0; border-radius:50%; width:30px; height:30px; }
+  .deal { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; width:min(400px,calc(100% - 24px)); background:#fff5f6; border-radius:16px; padding:10px 12px; display:flex; align-items:center; gap:8px; box-shadow:0 8px 20px rgba(27,58,75,.12); z-index:6; }
+  .timer { margin-left:auto; background:var(--pink); color:#fff; border-radius:8px; padding:6px 8px; font-weight:800; }
+  .x { border:0; background:transparent; font-size:18px; }
+  .tabs { position:fixed; left:50%; transform:translateX(-50%); bottom:0; width:min(430px,100%); background:#fff; display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid #edf1f4; padding:8px 0 calc(8px + env(safe-area-inset-bottom)); z-index:7; }
+  .tabs button { border:0; background:transparent; color:#8b98a2; font-size:11px; font-weight:700; }
   .tabs button.on { color:var(--blue); }
-  .btn { width:100%; border:0; border-radius:14px; background:var(--blue); color:#fff; font-weight:800; padding:13px; margin-top:8px; font-size:15px; }
-  .btn.ghost { background:#fff; color:var(--navy); border:1px solid var(--line); } .btn.wa { background:var(--wa); }
-  .sheet { background:#fff; border-radius:18px; padding:14px; margin-top:10px; box-shadow:0 8px 22px rgba(27,58,75,.06); }
-  .line { display:flex; justify-content:space-between; gap:8px; padding:7px 0; font-size:14px; }
-  .roles { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .role { background:#fff; border:1.5px solid var(--line); border-radius:18px; padding:16px 8px; }
-  .role.on { border-color:var(--blue); box-shadow:0 0 0 3px rgba(47,128,237,.15); }
-  .back { border:0; background:#fff; width:36px; height:36px; border-radius:50%; }
-  .map { height:290px; border-radius:18px; position:relative; background:linear-gradient(#d5f0f7,#d5e4c4); overflow:hidden; }
-  .pin { position:absolute; transform:translate(-50%,-100%); background:var(--navy); color:#fff; border:0; border-radius:9px; font-size:10px; font-weight:800; padding:4px 6px; }
-  .bubble { background:#fff; border-radius:14px; padding:8px 10px; margin:8px 0; max-width:82%; } .bubble.me { margin-left:auto; background:#d9ecff; }
-  .tour { height:150px; border-radius:16px; margin-top:8px; display:grid; place-items:center; color:#fff; font-weight:800; }
-  .note { color:var(--muted); font-size:12px; text-align:center; }
-  .toast { position:fixed; z-index:9; left:50%; transform:translateX(-50%); bottom:92px; width:min(380px,calc(100% - 24px)); background:var(--navy); color:#fff; text-align:center; border-radius:999px; padding:10px 14px; font-size:13px; }
-  .box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px; margin:8px 0; }
+  .sheet { background:#fff; margin:12px 14px; border-radius:16px; padding:12px; }
+  .btn { width:100%; border:0; background:var(--blue); color:#fff; border-radius:12px; padding:12px; font-weight:800; margin-top:8px; }
+  .hide { display:none; }
 </style>
 </head>
 <body>
-<div class="app" id="app"></div>
+<div class="app">
+  <div class="head">
+    <div class="brand"><div class="mark">🐘</div><div>SD House<div style="font-size:11px;font-weight:600;opacity:.85">บ้านและที่ดิน เวียงจันทน์</div></div></div>
+    <div class="search">⌕ <input id="q" placeholder="ค้นหาบ้าน ที่ดิน เมือง"/></div>
+  </div>
+  <div class="prices">
+    <button data-max="500000000"><b>₭ 500,000</b><span>ที่ดินงบเริ่ม</span></button>
+    <button data-max="1500000000"><b>₭ 1,500,000</b><span>บ้านงบกลาง</span></button>
+    <button data-max="3000000000"><b>₭ 3,000,000</b><span>แปลงใหญ่</span></button>
+  </div>
+  <div class="promo"><i>%</i><div><b>ประกาศแนะนำ ลดค่าโปรโมต 30%</b><div class="sub">ดันประกาศให้ค้นเจอง่าย 7 วัน</div></div></div>
+  <div class="hscroll" id="row"></div>
+  <h2>แนะนำสำหรับคุณ</h2>
+  <div class="hscroll" id="wide"></div>
+  <div id="list"></div>
+  <div class="deal" id="deal"><span>⏱</span><div><b>โปรโมตด่วน 25%</b><div class="sub">ใช้ก่อนหมดเวลา</div></div><div class="timer" id="timer">14:59</div><button class="x" id="closedeal">×</button></div>
+  <nav class="tabs">
+    <button class="on" data-tab="home">หน้าแรก</button>
+    <button data-tab="list">ประกาศ</button>
+    <button data-tab="search">ค้นหา</button>
+    <button data-tab="saved">บันทึก <span id="badge"></span></button>
+    <button data-tab="me">บัญชี</button>
+  </nav>
+</div>
 <script>
-const WA = "8562091001122";
-const L = {
-  th: {tag:"บ้านและที่ดินในลาว",choose:"เลือกบทบาทของคุณ",buyer:"ผู้ซื้อ",buyerSub:"ค้นหาบ้านและที่ดิน",seller:"ผู้ขาย",sellerSub:"ลงประกาศฝากขาย",next:"ดำเนินการต่อ",phone:"เบอร์มือถือ",home:"หน้าแรก",search:"ค้นหา",map:"แผนที่",saved:"บันทึก",me:"บัญชี",near:"ใกล้ฉัน",land:"ที่ดิน",house:"บ้าน",short:"ระยะสั้น",pet:"เลี้ยงสัตว์ได้",lux:"หรู",verified:"ยืนยันแล้ว",feat:"แนะนำ",ask:"ทัก WhatsApp",chat:"แชทเจ้าของ",cmp:"เปรียบเทียบ",rev:"รีวิว",send:"ส่ง",pic:"ส่งรูป",book:"นัดดูที่",add:"ลงประกาศฟรี",pro:"โปรโมต",paid:"โปรโมตแล้ว อันดับขยับขึ้น",ok:"อนุมัติ",wait:"รออนุมัติ",live:"เผยแพร่แล้ว",admin:"โหมดแอดมิน",reset:"ล้างข้อมูลเดโม",empty:"ยังไม่มีรายการ",size:"ขนาด",doc:"เอกสาร",front:"หน้ากว้าง",demo:"SD House เล่นได้ในเครื่องนี้",need:"กรอกชื่อและราคา",count:"รายการ",zone:"ทำเลยอดนิยม",all:"ทั้งหมด"},
-  lao: {tag:"ເຮືອນ ແລະ ດິນໃນລາວ",choose:"ເລືອກບົດບາດ",buyer:"ຜູ້ຊື້",buyerSub:"ຄົ້ນຫາເຮືອນ ແລະ ດິນ",seller:"ຜູ້ຂາຍ",sellerSub:"ລົງປະກາດຝາກຂາຍ",next:"ດຳເນີນຕໍ່",phone:"ເບີໂທ",home:"ໜ້າຫຼັກ",search:"ຄົ້ນຫາ",map:"ແຜນທີ່",saved:"ບັນທຶກ",me:"ບັນຊີ",near:"ໃກ້ຂ້ອຍ",land:"ດິນ",house:"ເຮືອນ",short:"ໄລຍະສັ້ນ",pet:"ລ້ຽງສັດໄດ້",lux:"ຫຼູ",verified:"ຢືນຢັນແລ້ວ",feat:"ແນະນຳ",ask:"ທັກ WhatsApp",chat:"ແຊັດເຈົ້າຂອງ",cmp:"ປຽບທຽບ",rev:"ຣີວິວ",send:"ສົ່ງ",pic:"ສົ່ງຮູບ",book:"ນັດເບິ່ງທີ່",add:"ລົງປະກາດຟຣີ",pro:"ໂປຣໂມດ",paid:"ໂປຣໂມດແລ້ວ",ok:"ອະນຸມັດ",wait:"ລໍຖ້າ",live:"ເຜີຍແຜ່",admin:"ໂໝດແອດມິນ",reset:"ລ້າງເດໂມ",empty:"ຍັງບໍ່ມີ",size:"ຂະໜາດ",doc:"ເອກະສານ",front:"ໜ້າກວ້າງ",demo:"SD House ຫຼິ້ນໄດ້ໃນເຄື່ອງນີ້",need:"ໃສ່ຊື່ ແລະ ລາຄາ",count:"ລາຍການ",zone:"ເຂດຍອດນິຍົມ",all:"ທັງໝົດ"},
-  zh: {tag:"老挝房屋与土地",choose:"选择身份",buyer:"买家",buyerSub:"找房和土地",seller:"卖家",sellerSub:"发布委托",next:"继续",phone:"手机号",home:"首页",search:"搜索",map:"地图",saved:"收藏",me:"账户",near:"附近",land:"土地",house:"房屋",short:"短租",pet:"可养宠物",lux:"轻奢",verified:"已核验",feat:"推荐",ask:"WhatsApp",chat:"联系房东",cmp:"对比",rev:"评价",send:"发送",pic:"发图",book:"预约看房",add:"免费发布",pro:"推广",paid:"已推广，排名上移",ok:"通过",wait:"待审",live:"已发布",admin:"管理员",reset:"清空演示",empty:"暂无",size:"面积",doc:"证件",front:"面宽",demo:"SD House 可在本机试用",need:"请填标题和价格",count:"条",zone:"热门区域",all:"全部"},
-  en: {tag:"Homes and land in Laos",choose:"Choose your role",buyer:"Buyer",buyerSub:"Search homes and land",seller:"Seller",sellerSub:"List a property",next:"Continue",phone:"Mobile number",home:"Home",search:"Search",map:"Map",saved:"Saved",me:"Account",near:"Near me",land:"Land",house:"House",short:"Short stay",pet:"Pet friendly",lux:"Luxury",verified:"Verified",feat:"Featured",ask:"WhatsApp",chat:"Chat owner",cmp:"Compare",rev:"Reviews",send:"Send",pic:"Send photo",book:"Book a visit",add:"List for free",pro:"Promote",paid:"Promoted. Rank moved up.",ok:"Approve",wait:"Pending",live:"Live",admin:"Admin mode",reset:"Reset demo",empty:"Nothing here",size:"Size",doc:"Document",front:"Frontage",demo:"SD House runs on this phone",need:"Enter a title and price",count:"listings",zone:"Popular zones",all:"All"}
-};
-const ZONES = [["","zone"],["sisattanak","ศรีสัทนา"],["chantha","จันทะบุรี"],["sikhot","สีโคดตะบอง"],["hadxai","หาดซายฟอง"],["naxai","นาไซทอง"]];
-const SEED = [
-  {id:"SD-00421",type:"land",zone:"sisattanak",title:{th:"ที่ดินเปล่า หนองไผ่",lao:"ດິນວ່າງ ໜອງໄຜ່",zh:"农派空地",en:"Vacant land, Nongphai"},district:{th:"ศรีสัทนา, เวียงจันทน์",lao:"ສີສັດຕະນາກ, ວຽງຈັນ",zh:"万象 西萨塔纳",en:"Sisattanak, Vientiane"},price:1200000000,size:1600,front:10,pet:false,stay:"sale",lux:false,verified:true,hue:"#c9844a",x:62,y:46,status:"live",promo:"featured",promoUntil:Date.now()+9e8,updated:Date.now(),reviews:[{by:"มาย",text:{th:"เอกสารครบ เจ้าของตอบไว",lao:"ເອກະສານຄົບ",zh:"证件齐全",en:"Papers complete"}}]},
-  {id:"SD-00488",type:"land",zone:"hadxai",title:{th:"ที่ดินติดถนน ดอนหนูน",lao:"ດິນຕິດທາງ ດອນໜູນ",zh:"东嫩路边地",en:"Road-front land"},district:{th:"หาดซายฟอง, เวียงจันทน์",lao:"ຫາດຊາຍຟອງ",zh:"哈赛丰",en:"Hadxaifong"},price:1800000000,size:2400,front:12,pet:true,stay:"sale",lux:true,verified:true,hue:"#d7a15e",x:72,y:64,status:"live",promo:"boost",promoUntil:Date.now()+5e8,updated:Date.now()-8e5,reviews:[]},
-  {id:"SD-00312",type:"land",zone:"chantha",title:{th:"ที่ดินสวน บ้านสีไค",lao:"ດິນສວນ ສີໄຄ",zh:"西凯园地",en:"Garden land, Sikhai"},district:{th:"จันทะบุรี, เวียงจันทน์",lao:"ຈັນທະບູລີ",zh:"占塔武里",en:"Chanthabouly"},price:750000000,size:1280,front:8,pet:true,stay:"sale",lux:false,verified:false,hue:"#8eaa62",x:42,y:44,status:"live",promo:"",promoUntil:0,updated:Date.now()-8e6,reviews:[]},
-  {id:"SD-00502",type:"house",zone:"sikhot",title:{th:"บ้าน 2 ชั้น ดอนกอย",lao:"ເຮືອນ 2 ຊັ້ນ ດອນກ້ອຍ",zh:"东桂两层屋",en:"Two-storey house"},district:{th:"สีโคดตะบอง, เวียงจันทน์",lao:"ສີໂຄດຕະບອງ",zh:"西科达邦",en:"Sikhottabong"},price:2100000000,size:360,front:14,pet:true,stay:"short",lux:true,verified:true,hue:"#7ea0b8",x:30,y:38,status:"live",promo:"",promoUntil:0,updated:Date.now()-2e6,reviews:[{by:"Lin",text:{th:"ตรงปก",lao:"ຕົງຮູບ",zh:"与图片一致",en:"Matches photos"}}]},
-  {id:"SD-00277",type:"house",zone:"naxai",title:{th:"บ้านระยะสั้น นาไซทอง",lao:"ເຮືອນໄລຍະສັ້ນ",zh:"纳赛通短租",en:"Short-stay house"},district:{th:"นาไซทอง, เวียงจันทน์",lao:"ນາໄຊທອງ",zh:"纳赛通",en:"Naxaithong"},price:9000000,size:180,front:9,pet:false,stay:"short",lux:false,verified:true,hue:"#b7c36a",x:24,y:60,status:"live",promo:"",promoUntil:0,updated:Date.now()-4e6,reviews:[]}
+const items = [
+  {id:"SD-421", title:"ที่ดินหนองไผ่", sub:"ศรีสัทนา", price:1200000000, old:1500000000, off:"แนะนำ", score:"94%", hue:"#d7a36a", mins:"ดูได้วันนี้", big:true},
+  {id:"SD-488", title:"ที่ดินดอนหนูน", sub:"หาดซายฟอง", price:1800000000, old:2100000000, off:"ลด 10%", score:"93%", hue:"#c9844a", mins:"10-25 นาที", big:true},
+  {id:"SD-312", title:"สวนสีไค", sub:"จันทะบุรี", price:750000000, old:890000000, off:"ลด 15%", score:"82%", hue:"#8eaa62", mins:"นัดดูที่", big:false},
+  {id:"SD-502", title:"บ้านดอนกอย", sub:"สีโคดตะบอง", price:2100000000, old:2400000000, off:"ยืนยันแล้ว", score:"91%", hue:"#7ea0b8", mins:"บ้าน 2 ชั้น", big:true},
+  {id:"SD-277", title:"บ้านนาไซทอง", sub:"ระยะสั้น", price:9000000, old:12000000, off:"เช่ารายเดือน", score:"88%", hue:"#b7c36a", mins:"เข้าอยู่ได้", big:false}
 ];
-let S = JSON.parse(localStorage.getItem("sdhouse") || "null") || {lang:"th",role:"",phone:"",tab:"home",filter:"all",zone:"",q:"",saved:[],compare:[],listings:SEED,admin:false,screen:"list",chat:{},openId:"",pick:"buyer"};
-const save = () => localStorage.setItem("sdhouse", JSON.stringify(S));
-const t = (k) => (L[S.lang] || L.th)[k];
-const tx = (o) => o?.[S.lang] || o?.th || "";
-const money = (n) => Number(n).toLocaleString("en-US") + " ກີບ";
-const badge = (x) => x.promo && x.promoUntil > Date.now() ? x.promo : "";
-const rank = (a) => a.slice().sort((x,y)=>(badge(y)==="featured"?2:badge(y)==="boost"?1:0)-(badge(x)==="featured"?2:badge(x)==="boost"?1:0) || y.updated-x.updated);
-function list() {
-  return rank(S.listings.filter((x) => {
-    if (x.status !== "live" && !S.admin) return false;
-    if (S.filter === "land" && x.type !== "land") return false;
-    if (S.filter === "house" && x.type !== "house") return false;
-    if (S.filter === "short" && x.stay !== "short") return false;
-    if (S.filter === "pet" && !x.pet) return false;
-    if (S.filter === "lux" && !x.lux) return false;
-    if (S.filter === "verified" && !x.verified) return false;
-    if (S.filter === "feat" && badge(x) !== "featured") return false;
-    if (S.zone && x.zone !== S.zone) return false;
-    return (tx(x.title) + tx(x.district) + x.id).toLowerCase().includes(S.q.toLowerCase());
-  }));
+let saved = JSON.parse(localStorage.getItem("sdh-saved")||"[]");
+let max = 0, q = "", tab = "home";
+const kip = n => "₭" + Math.round(n/1000).toLocaleString("en-US");
+function card(x, wide){
+  return `<button class="pcard ${wide?"wide":""}" data-id="${x.id}"><div class="photo" style="background:linear-gradient(145deg,${x.hue},#f4efe4)"><span class="time">${x.mins}</span><button class="heart" data-save="${x.id}">${saved.includes(x.id)?"♥":"♡"}</button></div><div class="name">SD House · ${x.id}</div><div class="sub">${x.title} · ${x.sub}</div><div class="price">${kip(x.price)} <span class="old">${kip(x.old)}</span></div><div class="off">${x.off}</div><div class="sub">👍 ${x.score}</div></button>`;
 }
-const bg = (x) => `linear-gradient(150deg,${x.hue},#f6f1e6)`;
-const wa = (x) => `https://wa.me/${WA}?text=${encodeURIComponent("SD House " + x.id + " " + tx(x.title))}`;
-function toast(m) { const old = document.querySelector(".toast"); if (old) old.remove(); const e = document.createElement("div"); e.className = "toast"; e.textContent = m; document.body.appendChild(e); setTimeout(() => e.remove(), 1700); }
-function shell(html, tabs) {
-  document.getElementById("app").innerHTML = `<div class="top"><svg class="logo" viewBox="0 0 64 64" width="44" height="44" aria-label="SD House"><rect width="64" height="64" rx="14" fill="#7EC8E3"/><path d="M24 28h14v12H24z" fill="#fff" stroke="#1B3A4B" stroke-width="2"/><path d="M22 28l9-8 9 8" fill="none" stroke="#1B3A4B" stroke-width="2"/><path d="M12 42c8-8 14-6 18-2 4-6 12-4 20 2v6H12z" fill="#fff" stroke="#1B3A4B" stroke-width="2"/><text x="32" y="58" text-anchor="middle" font-size="8" font-weight="700" fill="#1B3A4B">SD</text></svg><div class="brand">SD House<small>${t("tag")}</small></div><div class="grow"></div><div class="lang">${["th","lao","zh","en"].map(c=>`<button data-lang="${c}" class="${S.lang===c?"on":""}">${{th:"TH",lao:"LAO",zh:"ZH",en:"EN"}[c]}</button>`).join("")}</div></div><div class="body">${html}</div>${tabs?`<nav class="tabs">${[["home",t("home")],["search",t("search")],["map",t("map")],["saved",t("saved")],["me",t("me")]].map(([id,lb])=>`<button data-tab="${id}" class="${S.tab===id?"on":""}">${lb}</button>`).join("")}</nav>`:""}`;
-  document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => { S.lang = b.dataset.lang; save(); render(); });
-  document.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { S.tab = b.dataset.tab; S.screen = "list"; save(); render(); });
+function draw(){
+  const rows = items.filter(x => (!q || (x.title+x.sub+x.id).includes(q)) && (!max || x.price<=max*1000));
+  document.getElementById("row").innerHTML = rows.map(x=>card(x,false)).join("");
+  document.getElementById("wide").innerHTML = rows.filter(x=>x.big).map(x=>card(x,true)).join("");
+  document.getElementById("list").innerHTML = tab==="saved" ? `<h2>บันทึกไว้</h2>`+rows.filter(x=>saved.includes(x.id)).map(x=>`<div class="sheet"><b>${x.title}</b><div>${kip(x.price)}</div><a class="btn" style="display:block;text-align:center;text-decoration:none" href="https://wa.me/8562091001122?text=SD%20House%20${x.id}">ทัก WhatsApp</a></div>`).join("") : tab==="me" ? `<div class="sheet"><b>SD House</b><div class="sub">ผู้ซื้อ / ผู้ขาย สลับได้</div><button class="btn" id="role">ลงประกาศฝากขาย</button></div>` : "";
+  document.getElementById("badge").textContent = saved.length? saved.length : "";
+  document.querySelectorAll("[data-id]").forEach(b=>b.onclick=ev=>{ if(ev.target.dataset.save) return; location.href="https://wa.me/8562091001122?text="+encodeURIComponent("SD House "+b.dataset.id); });
+  document.querySelectorAll("[data-save]").forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); const id=b.dataset.save; saved=saved.includes(id)?saved.filter(i=>i!==id):saved.concat(id); localStorage.setItem("sdh-saved",JSON.stringify(saved)); draw(); });
+  const role=document.getElementById("role"); if(role) role.onclick=()=>alert("โหมดผู้ขาย: อัปโหลดรูป ที่ ราคา แล้วรอแอดมินอนุมัติ");
 }
-function chips() {
-  const fs = [["all",t("all")],["feat",t("feat")],["land",t("land")],["house",t("house")],["short",t("short")],["pet",t("pet")],["lux",t("lux")],["verified",t("verified")]];
-  return `<div class="rowchips">${fs.map(([id,lb])=>`<button class="chip ${S.filter===id?"on":""}" data-f="${id}">${lb}</button>`).join("")}</div><div class="rowchips">${ZONES.map(([id,lb])=>`<button class="chip ${S.zone===id?"on":""}" data-z="${id}">${id?lb:t("zone")}</button>`).join("")}</div>`;
-}
-function card(x) {
-  const p = badge(x);
-  return `<button class="card" data-open="${x.id}"><div class="ph" style="background:${bg(x)}">${p==="featured"?`<span class="bdg gold">${t("feat")}</span>`:p==="boost"?`<span class="bdg">${t("pro")}</span>`:""}${x.verified?`<span class="bdg ok">${t("verified")}</span>`:""}</div><div class="mt"><h3>${tx(x.title)}</h3><div class="sub">${tx(x.district)} · ${x.size} m²</div><div class="price">${money(x.price)}</div></div></button>`;
-}
-function bindList() {
-  document.querySelectorAll("[data-f]").forEach(b => b.onclick = () => { S.filter = b.dataset.f; save(); render(); });
-  document.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { S.zone = b.dataset.z; save(); render(); });
-  document.querySelectorAll("[data-open]").forEach(b => b.onclick = () => { S.openId = b.dataset.open; S.screen = "detail"; save(); render(); });
-  const q = document.getElementById("q");
-  if (q) q.oninput = (e) => { S.q = e.target.value; save(); render(); };
-}
-function render() {
-  if (!S.role) return boot();
-  if (S.screen === "detail") return detail();
-  if (S.screen === "chat") return chat();
-  if (S.screen === "compare") return compare();
-  if (S.screen === "add") return add();
-  if (S.tab === "map") return map();
-  if (S.tab === "saved") return saved();
-  if (S.tab === "me") return account();
-  return home();
-}
-function boot() {
-  shell(`<div class="hero"><img src="logo.jpg" alt="SD House"/><h1>SD House</h1><p>${t("tag")}</p></div><h2 style="text-align:center">${t("choose")}</h2><div class="box"><input id="phone" placeholder="${t("phone")}" value="${S.phone || ""}"/></div><div class="roles"><button class="role ${S.pick==="buyer"?"on":""}" data-pick="buyer"><b>${t("buyer")}</b><div class="sub">${t("buyerSub")}</div></button><button class="role ${S.pick==="seller"?"on":""}" data-pick="seller"><b>${t("seller")}</b><div class="sub">${t("sellerSub")}</div></button></div><button class="btn" id="go">${t("next")}</button><p class="note">${t("demo")}</p>`, false);
-  document.querySelectorAll("[data-pick]").forEach(b => b.onclick = () => { S.pick = b.dataset.pick; render(); });
-  document.getElementById("go").onclick = () => { S.phone = document.getElementById("phone").value || "020"; S.role = S.pick || "buyer"; S.tab = "home"; save(); render(); };
-}
-function home() {
-  const rows = list();
-  shell(`<div class="search">⌕ <input id="q" value="${S.q}" placeholder="${t("search")}"/></div><button class="chip" id="near">${t("near")}</button>${chips()}<h2>${rows.length} ${t("count")}</h2>${rows.map(card).join("") || `<p class="note">${t("empty")}</p>`}`, true);
-  bindList();
-  document.getElementById("near").onclick = () => { S.zone = "chantha"; S.tab = "map"; save(); toast(t("near")); render(); };
-}
-function map() {
-  const rows = list();
-  shell(`<div class="search">⌕ <input id="q" value="${S.q}" placeholder="${t("map")}"/></div>${chips()}<div class="map">${rows.map(x => `<button class="pin" style="left:${x.x}%;top:${x.y}%" data-open="${x.id}">${x.id.slice(-3)}</button>`).join("")}</div><p class="note">${rows.length} ${t("count")}</p>${rows.slice(0,2).map(card).join("")}`, true);
-  bindList();
-}
-function detail() {
-  const x = S.listings.find(i => i.id === S.openId);
-  if (!x) { S.screen = "list"; return render(); }
-  shell(`<button class="back" id="back">←</button><div class="ph" style="height:200px;border-radius:18px;margin-top:8px;background:${bg(x)}"></div><div class="tour" style="background:${bg(x)}">360°</div><div class="sheet"><h2 style="margin:0">${tx(x.title)} ${x.verified ? "✓" : ""}</h2><div class="price">${money(x.price)}</div><div class="line"><span>${t("size")}</span><b>${x.size} m²</b></div><div class="line"><span>${t("front")}</span><b>${x.front} m</b></div><div class="line"><span>${t("doc")}</span><b>${x.verified ? t("verified") : t("wait")}</b></div><a class="btn wa" target="_blank" href="${wa(x)}">${t("ask")}</a><button class="btn ghost" id="fav">${S.saved.includes(x.id) ? "★" : "☆"} ${t("saved")}</button><button class="btn" id="chat">${t("chat")}</button><button class="btn ghost" id="cmp">${t("cmp")}</button><button class="btn ghost" id="book">${t("book")}</button><h3>${t("rev")}</h3>${x.reviews.map(r => `<div class="bubble"><b>${r.by}</b><div>${tx(r.text)}</div></div>`).join("") || `<p class="note">${t("empty")}</p>`}<button class="btn ghost" id="rev">+ ${t("rev")}</button></div>`, false);
-  document.getElementById("back").onclick = () => { S.screen = "list"; save(); render(); };
-  document.getElementById("fav").onclick = () => { S.saved = S.saved.includes(x.id) ? S.saved.filter(id => id !== x.id) : S.saved.concat(x.id); save(); render(); };
-  document.getElementById("chat").onclick = () => { S.screen = "chat"; save(); render(); };
-  document.getElementById("cmp").onclick = () => { if (!S.compare.includes(x.id)) S.compare.push(x.id); S.compare = S.compare.slice(-2); S.screen = "compare"; save(); render(); };
-  document.getElementById("book").onclick = () => toast(t("book"));
-  document.getElementById("rev").onclick = () => { x.reviews.push({by:"คุณ", text:{th:"ดูแล้ว สนใจ",lao:"ເບິ່ງແລ້ວ",zh:"已查看",en:"Viewed"}}); save(); render(); };
-}
-function chat() {
-  const x = S.listings.find(i => i.id === S.openId);
-  const msgs = S.chat[x.id] || [{from:"owner", text:t("ask") + " " + x.id}];
-  shell(`<button class="back" id="back">←</button><h2>${t("chat")}</h2><p class="note">${tx(x.title)}</p>${msgs.map(m => `<div class="bubble ${m.from==="me"?"me":""}">${m.text}</div>`).join("")}<div class="box"><input id="msg" placeholder="${t("send")}"/></div><button class="btn" id="send">${t("send")}</button><button class="btn ghost" id="pic">${t("pic")}</button><a class="btn wa" target="_blank" href="${wa(x)}">${t("ask")}</a>`, false);
-  document.getElementById("back").onclick = () => { S.screen = "detail"; save(); render(); };
-  document.getElementById("send").onclick = () => { const v = document.getElementById("msg").value.trim(); if (!v) return; S.chat[x.id] = (S.chat[x.id] || msgs).concat([{from:"me", text:v},{from:"owner", text:"รับเรื่องแล้ว / ຮັບແລ້ວ"}]); save(); render(); };
-  document.getElementById("pic").onclick = () => { S.chat[x.id] = (S.chat[x.id] || msgs).concat([{from:"me", text:"[รูป " + x.id + "]"}]); save(); render(); };
-}
-function compare() {
-  const items = S.compare.map(id => S.listings.find(x => x.id === id)).filter(Boolean);
-  shell(`<button class="back" id="back">←</button><h2>${t("cmp")}</h2>${items.map(x => `<div class="sheet"><b>${tx(x.title)}</b><div class="price">${money(x.price)}</div><div class="sub">${x.size} m² · ${t("front")} ${x.front} m · ${x.verified ? t("verified") : "-"}</div></div>`).join("") || `<p class="note">${t("empty")}</p>`}`, false);
-  document.getElementById("back").onclick = () => { S.screen = "list"; save(); render(); };
-}
-function saved() {
-  const rows = S.listings.filter(x => S.saved.includes(x.id));
-  shell(`<h2>${t("saved")}</h2>${rows.map(card).join("") || `<p class="note">${t("empty")}</p>`}`, true);
-  bindList();
-}
-function account() {
-  const mine = S.listings.filter(x => x.owner === "me");
-  shell(`<div class="sheet"><svg class="logo" viewBox="0 0 64 64" width="44" height="44" aria-label="SD House"><rect width="64" height="64" rx="14" fill="#7EC8E3"/><path d="M24 28h14v12H24z" fill="#fff" stroke="#1B3A4B" stroke-width="2"/><path d="M22 28l9-8 9 8" fill="none" stroke="#1B3A4B" stroke-width="2"/><path d="M12 42c8-8 14-6 18-2 4-6 12-4 20 2v6H12z" fill="#fff" stroke="#1B3A4B" stroke-width="2"/><text x="32" y="58" text-anchor="middle" font-size="8" font-weight="700" fill="#1B3A4B">SD</text></svg><h2 style="margin:8px 0 0">SD House</h2><div class="line"><span>${t("phone")}</span><b>${S.phone}</b></div><div class="line"><span></span><b>${S.role === "seller" ? t("seller") : t("buyer")}</b></div><button class="btn" id="sw">${S.role === "seller" ? t("buyer") : t("seller")}</button>${S.role === "seller" ? `<button class="btn ghost" id="add">${t("add")}</button>` : ""}<button class="btn ghost" id="ad">${t("admin")}: ${S.admin ? "ON" : "OFF"}</button><button class="btn ghost" id="rs">${t("reset")}</button><p class="note">${t("demo")}</p></div>${mine.map(x => `<div class="sheet"><b>${tx(x.title)}</b><div class="sub">${x.status === "live" ? t("live") : t("wait")} · ${x.id}</div>${S.admin && x.status !== "live" ? `<button class="btn" data-ok="${x.id}">${t("ok")}</button>` : ""}<button class="btn ghost" data-pro="${x.id}">${t("pro")}</button></div>`).join("")}`, true);
-  document.getElementById("sw").onclick = () => { S.role = S.role === "seller" ? "buyer" : "seller"; save(); render(); };
-  const addBtn = document.getElementById("add");
-  if (addBtn) addBtn.onclick = () => { S.screen = "add"; save(); render(); };
-  document.getElementById("ad").onclick = () => { S.admin = !S.admin; save(); render(); };
-  document.getElementById("rs").onclick = () => { localStorage.removeItem("sdhouse"); location.reload(); };
-  document.querySelectorAll("[data-ok]").forEach(b => b.onclick = () => { S.listings.find(x => x.id === b.dataset.ok).status = "live"; save(); toast(t("live")); render(); });
-  document.querySelectorAll("[data-pro]").forEach(b => b.onclick = () => { const x = S.listings.find(i => i.id === b.dataset.pro); x.promo = "featured"; x.promoUntil = Date.now() + 864e5 * 30; x.status = "live"; x.updated = Date.now(); save(); toast(t("paid")); S.tab = "home"; S.screen = "list"; render(); });
-}
-function add() {
-  shell(`<button class="back" id="back">←</button><h2>${t("add")}</h2><div class="box"><input id="title" placeholder="${t("house")}"/></div><div class="box"><input id="price" type="number" placeholder="LAK"/></div><div class="box"><select id="type"><option value="land">${t("land")}</option><option value="house">${t("house")}</option></select></div><button class="btn" id="save">${t("add")}</button><p class="note">${t("wait")}</p>`, false);
-  document.getElementById("back").onclick = () => { S.screen = "list"; S.tab = "me"; save(); render(); };
-  document.getElementById("save").onclick = () => {
-    const title = document.getElementById("title").value.trim();
-    const price = Number(document.getElementById("price").value);
-    if (!title || !price) return toast(t("need"));
-    S.listings.unshift({id:"SD-" + (1000 + S.listings.length), type:document.getElementById("type").value, zone:"chantha", owner:"me", title:{th:title,lao:title,zh:title,en:title}, district:{th:"เวียงจันทน์",lao:"ວຽງຈັນ",zh:"万象",en:"Vientiane"}, price, size:500, front:8, pet:false, stay:"sale", lux:false, verified:false, hue:"#9bb7c9", x:50, y:52, status:"pending", promo:"", promoUntil:0, updated:Date.now(), reviews:[]});
-    S.screen = "list"; S.tab = "me"; save(); toast(t("wait")); render();
-  };
-}
-render();
+document.getElementById("q").oninput=e=>{ q=e.target.value.trim(); draw(); };
+document.querySelectorAll("[data-max]").forEach(b=>b.onclick=()=>{ max=Number(b.dataset.max); draw(); });
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{ tab=b.dataset.tab; document.querySelectorAll("[data-tab]").forEach(x=>x.classList.remove("on")); b.classList.add("on"); draw(); });
+document.getElementById("closedeal").onclick=()=>document.getElementById("deal").classList.add("hide");
+let sec=14*60+59; setInterval(()=>{ sec=Math.max(0,sec-1); const m=String(Math.floor(sec/60)).padStart(2,"0"); const s=String(sec%60).padStart(2,"0"); document.getElementById("timer").textContent=m+":"+s; },1000);
+draw();
 </script>
 </body>
 </html>
